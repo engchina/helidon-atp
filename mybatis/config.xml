@@ -9,8 +9,8 @@
 	<context id="codetokyo">
 		<jdbcConnection
 			driverClass="oracle.jdbc.OracleDriver"
-			connectionURL="jdbc:oracle:thin:@DB_NAME?TNS_ADMIN=/app/wallet/"
-			userId="admin" password="PASSWORD" />
+			connectionURL="jdbc:oracle:thin:@TODO?TNS_ADMIN=/app/wallet/"
+			userId="TODO" password="TODO" />
 
 		<javaModelGenerator
 			targetPackage="io.helidon.atp.mybatis.entity"
