@@ -1,6 +1,6 @@
-# Helidon Api Gateway
+# Helidon ATP
 
-This example implements a simple Hello World REST service using MicroProfile
+This example implements a simple database access to oracle ATP using MicroProfile&Mybatis
 
 ## Prerequisites
 
