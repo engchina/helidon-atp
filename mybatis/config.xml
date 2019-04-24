@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE generatorConfiguration PUBLIC
+   "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+	<classPathEntry
+		location="/u02/workspace/helidon-atp/src/main/libs/ojdbc-8.jar" />
+	<context id="codetokyo">
+		<jdbcConnection
+			driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@DB_NAME?TNS_ADMIN=/app/wallet/"
+			userId="admin" password="PASSWORD" />
+
+		<javaModelGenerator
+			targetPackage="io.helidon.atp.mybatis.entity"
+			targetProject="helidon-atp" />
+		<sqlMapGenerator
+			targetPackage="io.helidon.atp.mybatis.mapper"
+			targetProject="helidon-atp" />
+		<javaClientGenerator
+			targetPackage="io.helidon.atp.mybatis.mapper"
+			targetProject="helidon-atp" type="XMLMAPPER" />
+
+		<table tableName="employee" />
+	</context>
+</generatorConfiguration>
