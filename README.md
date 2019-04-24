@@ -19,6 +19,20 @@ kubectl version --short
 
 ## Build
 
+### Prepare
+Create table and insert date.
+
+--------------------------------------------------------
+--  DDL for Table EMPLOYEE
+--------------------------------------------------------
+CREATE TABLE "EMPLOYEE" 
+   ("EMPLOYEE_ID" VARCHAR2(20 BYTE), 
+	"FIRST_NAME" VARCHAR2(20 BYTE), 
+	"LAST_NAME" VARCHAR2(20 BYTE)
+   );
+
+Insert into EMPLOYEE (EMPLOYEE_ID,FIRST_NAME,LAST_NAME) values ('101','Bill','Gates');
+
 ### Step.1 
 Copy your atp wallet files to override /src/main/wallet
 
