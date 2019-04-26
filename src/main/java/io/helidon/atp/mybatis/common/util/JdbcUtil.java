@@ -11,6 +11,7 @@ import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import io.helidon.atp.mybatis.common.config.AppConfig;
+import net.sf.log4jdbc.Log4jdbcProxyDataSource;
 
 @ApplicationScoped
 public class JdbcUtil {
@@ -34,7 +35,8 @@ public class JdbcUtil {
 			try {
 
 				TransactionFactory transactionFactory = new JdbcTransactionFactory();
-				Environment environment = new Environment("product", transactionFactory, AppConfig.ds);
+				Environment environment = new Environment("product", transactionFactory,
+						new Log4jdbcProxyDataSource(AppConfig.ds));
 				Configuration configuration = new Configuration(environment);
 				configuration.getTypeAliasRegistry().registerAliases("io.helidon.atp.mybatis.entity");
 				configuration.addMappers("io.helidon.atp.mybatis.mapper");

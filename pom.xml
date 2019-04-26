@@ -241,6 +241,12 @@
 				<artifactId>mybatis</artifactId>
 				<version>3.5.1</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.lazyluke/log4jdbc-remix -->
+			<dependency>
+			    <groupId>org.lazyluke</groupId>
+			    <artifactId>log4jdbc-remix</artifactId>
+			    <version>0.2.7</version>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -285,6 +291,10 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.lazyluke</groupId>
+		    <artifactId>log4jdbc-remix</artifactId>
 		</dependency>
         <dependency>
             <groupId>org.jboss</groupId>

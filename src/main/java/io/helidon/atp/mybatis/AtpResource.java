@@ -36,6 +36,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.slf4j.Logger;
+
 import io.helidon.atp.mybatis.common.config.AppConfig;
 import io.helidon.atp.mybatis.entity.Employee;
 import io.helidon.atp.mybatis.facade.EmployeeFacade;
@@ -57,6 +59,9 @@ import io.helidon.atp.mybatis.facade.EmployeeFacade;
 public class AtpResource {
 
 	private static final JsonBuilderFactory JSON = Json.createBuilderFactory(Collections.emptyMap());
+
+	@Inject
+	transient Logger logger;
 
 	/**
 	 * The greeting message provider.
@@ -134,6 +139,10 @@ public class AtpResource {
 	public List<Employee> listEmployees() throws SQLException {
 
 		List<Employee> employees = employeeFacade.selectEmployeeByExample();
+		employees.forEach(v -> {
+			logger.info(v.getEmployeeId() + ":" + v.getLastName() + " " + v.getFirstName());
+		});
+
 		return employees;
 	}
 
