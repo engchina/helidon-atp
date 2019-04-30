@@ -19,12 +19,17 @@ package io.helidon.atp.mybatis;
 import java.io.IOException;
 import java.util.logging.LogManager;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import io.helidon.microprofile.server.Server;
 
 /**
  * Main method simulating trigger of main method of the server.
  */
 public final class Main {
+
+	private final static Logger logger = LoggerFactory.getLogger(Main.class);
 
 	/**
 	 * Cannot be instantiated.
@@ -43,8 +48,8 @@ public final class Main {
 
 		Server server = startServer();
 
-		System.out.println("http://localhost:" + server.port() + "/atp");
-		System.out.println("http://localhost:" + server.port() + "/atp/employees");
+		logger.info("http://localhost:{}/atp", server.port());
+		logger.info("http://localhost:{}/atp/employees", server.port());
 	}
 
 	/**

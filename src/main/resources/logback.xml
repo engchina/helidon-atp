@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user -->
+<!-- -->
+<!-- For professional support please see -->
+<!-- http://www.qos.ch/shop/products/professionalSupport -->
+<!-- -->
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<property name="LOG_HOME" value="/tmp/logs" />
+
+	<contextListener
+		class="ch.qos.logback.classic.jul.LevelChangePropagator">
+		<resetJUL>true</resetJUL>
+	</contextListener>
+
+	<!-- To enable JMX Management -->
+	<jmxConfigurator />
+
+	<!-- sends logs to logback-beagle -->
+	<!-- <consolePlugin /> -->
+
+	<!-- https://logback.qos.ch/manual/configuration_ja.html -->
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!-- <charset>UTF-8</charset> -->
+			<pattern>%d{HH:mm:ss.SSS} | [%thread] | %-5level | (%file:%line\) | %logger | - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- <Encoding>UTF-8</Encoding> -->
+		<file>${LOG_HOME}/helidon-atp.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/helidon-atp.%d{yyyy-MM-dd}.log.zip
+			</FileNamePattern>
+			<MaxHistory>7</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<!-- <charset>UTF-8</charset> -->
+			<pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} | [%thread] | %-5level | (%file:%line\) | %logger | - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+    <logger name="io.helidon.atp.mybatis" level="info" />
+	<logger name="io.helidon.config" level="info" />
+	<logger name="io.helidon.security" level="info" />
+	<logger name="io.helidon.microprofile" level="info" />
+	<logger name="io.helidon.common" level="info" />
+	<logger name="io.netty" level="info" />
+	<logger name="org.glassfish.jersey" level="info" />
+	<logger name="org.jboss.weld" level="info" />
+	<logger name="jdbc" level="off" />
+	<logger name="jdbc.sqltiming" level="info" />
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>
