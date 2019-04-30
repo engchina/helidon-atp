@@ -56,7 +56,9 @@
 	<logger name="org.glassfish.jersey" level="info" />
 	<logger name="org.jboss.weld" level="info" />
 	<logger name="jdbc" level="off" />
+    <logger name="jdbc.sqlonly" level="info" />
 	<logger name="jdbc.sqltiming" level="info" />
+	<logger name="jdbc.resultsettable" level="info" />
 
 	<root level="info">
 		<appender-ref ref="STDOUT" />
